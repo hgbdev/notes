@@ -37,3 +37,28 @@ function same(arr1: number[], arr2: number[]): boolean {
 const result = same([1, 2, 3, 2], [9, 1, 4, 4]);
 console.log(result);
 ```
+
+## Problem 2
+> Given two strings, write function fo determine if the second string is an anagram of the first. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as *cinema*, formed from *iceman*.
+
+```ts
+// Function validAnagram us Frequency Counter Pattern
+function validAnagram(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    const lookup = {};
+    for (let letter of str1) {
+        lookup[letter] = (lookup[letter] || 0) + 1;
+    }
+    for (let letter of str2) {
+        if (!lookup[letter]) {
+            return false;
+        }
+        else {
+            lookup[letter] = lookup[letter] - 1;
+        }
+    }
+    return true;
+}
+```
