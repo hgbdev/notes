@@ -1,5 +1,8 @@
 # Problem Solving Patterns - Frequency Counter Pattern
 
+## Problem 1
+> Write function called **same**, which accept two arrays. The function should return true if every value in the array has it's corresponding value squared in the second array. The frequency of values must be the same.
+
 ```ts
 //  Frequency Counter
 function same(arr1: number[], arr2: number[]): boolean {
