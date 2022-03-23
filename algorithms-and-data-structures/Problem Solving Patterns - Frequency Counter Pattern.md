@@ -62,3 +62,36 @@ function validAnagram(str1, str2) {
     return true;
 }
 ```
+
+## Problem 3: Frequency counter - sameFrquency
+Write a function called **sameFrequency**. Given two positive integers, find out if the two numbers have the same frequency of digits.
+```ts
+//typescript
+function sameFrequency(num1: number, num2: number): boolean {
+    const frequencyNum1: any = {};
+    const frequencyNum2: any = {};
+
+    let _tNum1: number = num1;
+    let _tNum2: number = num2;
+
+    while(_tNum1 >= 1) {
+        const key = Math.floor(_tNum1 % 10)
+        frequencyNum1[key] = (frequencyNum1[key] || 0) + 1;
+        _tNum1 = _tNum1 / 10;
+    }
+
+    while(_tNum2 >= 1) {
+        const key = Math.floor(_tNum2 % 10)
+        frequencyNum2[key] = (frequencyNum2[key] || 0) + 1;
+        _tNum2 = _tNum2 / 10;
+    }
+
+    for(let key in frequencyNum1) {
+        if(frequencyNum1[key] !== frequencyNum2[key]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+```
