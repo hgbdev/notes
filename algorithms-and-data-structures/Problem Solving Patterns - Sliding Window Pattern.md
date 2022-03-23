@@ -1,7 +1,7 @@
 # Problem Solving Patterns - Sliding Window Pattern.md
 
 ## Problem
-Write a function called **maxSubArraySum** which accepts an array of integers and a number called **n**. The function should calculate the maximum sum of **n** consecutive emelents in the array.\
+Write a function called **maxSubArraySum** which accepts an array of integers and a number called **n**. The function should calculate the maximum sum of **n** consecutive emelents in the array.
 
 ```ts
 //typescript
