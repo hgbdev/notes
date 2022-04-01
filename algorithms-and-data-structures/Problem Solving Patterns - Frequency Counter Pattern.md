@@ -99,6 +99,7 @@ Given two strings, write function fo determine if the second string is an anagra
 
 ```ts
 // Function validAnagram us Frequency Counter Pattern
+// Typescript
 function validAnagram(str1, str2) {
     if (str1.length !== str2.length) {
         return false;
@@ -117,6 +118,47 @@ function validAnagram(str1, str2) {
     }
     return true;
 }
+```
+
+```go
+// Golang
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	isValidAnagram := validAnagram("iceman", "cinema")
+	fmt.Printf("%v ", isValidAnagram)
+}
+
+func validAnagram(str1, str2 string) bool {
+	if len(str1) != len(str2) {
+		return false
+	}
+
+	lookup := make(map[string]int)
+
+	for _, letter := range str1 {
+		if _, ok := lookup[string(letter)]; !ok {
+			lookup[string(letter)]++
+		} else {
+			lookup[string(letter)] = 1
+		}
+	}
+
+	for _, letter := range str2 {
+		if v := lookup[string(letter)]; v < 1 {
+			return false
+		} else {
+			lookup[string(letter)]--
+		}
+	}
+
+	return true
+}
+
 ```
 
 ## Problem 3: Frequency counter - sameFrquency
