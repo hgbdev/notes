@@ -5,6 +5,7 @@ Write function called **same**, which accept two arrays. The function should ret
 
 ```ts
 //  Frequency Counter
+// typescript
 function same(arr1: number[], arr2: number[]): boolean {
     if(arr1.length !== arr2.length) {
         return false;
@@ -36,6 +37,61 @@ function same(arr1: number[], arr2: number[]): boolean {
 
 const result = same([1, 2, 3, 2], [9, 1, 4, 4]);
 console.log(result);
+```
+
+```go
+// Golang
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	sl1 := []int{1, 2, 3, 2}
+	sl2 := []int{9, 1, 4, 5}
+	isSame := same(sl1, sl2)
+	fmt.Printf("%v", isSame)
+
+}
+
+func same(sl1, sl2 []int) bool {
+	if len(sl1) != len(sl2) {
+		return false
+	}
+
+	frequencyCounter1 := make(map[int]int)
+	frequencyCounter2 := make(map[int]int)
+
+	for _, i := range sl1 {
+		if _, ok := frequencyCounter1[i]; ok {
+			frequencyCounter1[i]++
+		} else {
+			frequencyCounter1[i] = 1
+		}
+	}
+
+	for _, i := range sl2 {
+		if _, ok := frequencyCounter2[i]; ok {
+			frequencyCounter2[i]++
+		} else {
+			frequencyCounter2[i] = 1
+		}
+	}
+
+	for i := range frequencyCounter1 {
+		if _, ok := frequencyCounter2[i*i]; !ok {
+			return false
+		}
+
+		if frequencyCounter1[i] != frequencyCounter2[i*i] {
+			return false
+		}
+	}
+
+	return true
+}
+
 ```
 
 ## Problem 2
