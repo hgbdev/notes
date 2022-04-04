@@ -193,3 +193,50 @@ function sameFrequency(num1: number, num2: number): boolean {
     return true;
 }
 ```
+```go
+// Golang
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	isValidAnagram := sameFrequency(1211, 1112)
+	fmt.Printf("%v ", isValidAnagram)
+}
+
+func sameFrequency(num1, num2 int) bool {
+	strNum1 := strconv.Itoa(num1)
+	strNum2 := strconv.Itoa(num2)
+
+	frq1 := make(map[string]int)
+	frq2 := make(map[string]int)
+
+	for _, i := range strNum1 {
+		if _, ok := frq1[string(i)]; !ok {
+			frq1[string(i)] = 1
+		} else {
+			frq1[string(i)]++
+		}
+	}
+
+	for _, i := range strNum2 {
+		if _, ok := frq2[string(i)]; !ok {
+			frq2[string(i)] = 1
+		} else {
+			frq2[string(i)]++
+		}
+	}
+
+	for key := range frq1 {
+		if frq1[key] != frq2[key] {
+			return false
+		}
+	}
+
+	return true
+}
+
+```
