@@ -76,3 +76,33 @@ function countUniqueValues(numbers) {
 // countUniqueValues([1, 1, 1, 2]); => 2
 // countUniqueValues([1, 1, 1, 2, 3, 4, 4, 5, 6, 6, 7, 7]); => 7
 ```
+```go
+// Go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	result := countUniqueValues([]int{1, 1, 1, 2})
+	fmt.Printf("%v", result)
+}
+
+func countUniqueValues(numbers []int) int {
+	if len(numbers) == 0 {
+		return 0
+	}
+
+	count := 0
+
+	for i := range numbers {
+		if numbers[count] != numbers[i] {
+			count++
+			numbers[count] = numbers[i]
+		}
+	}
+
+	return count + 1
+}
+```
