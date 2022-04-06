@@ -24,6 +24,37 @@ function sumZero(numbers: number[]): number[] | any {
 }
 ```
 
+```go
+// Go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	result := sumZero([]int{2, 1, 0, -2})
+	fmt.Printf("%v", result)
+}
+
+func sumZero(numbers []int) []int {
+	left := 0
+	right := len(numbers) - 1
+
+	for left < right {
+		sum := numbers[left] + numbers[right]
+		if sum == 0 {
+			return []int{numbers[left], numbers[right]}
+		} else if sum < 0 {
+			left++
+		} else {
+			right--
+		}
+	}
+	return []int{}
+}
+```
+
 ## Problem 2
 Implement a function called **countUniqueValues**, which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted.
 ```ts
