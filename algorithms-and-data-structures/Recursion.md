@@ -64,6 +64,6 @@ func collectOddValues(arr []int) []int {
 ```
 
 Explain:\
-![image](https://user-images.githubusercontent.com/61721550/164598406-6b9441cd-be89-4496-a6ac-3e89ffe4833e.png)
+![image](https://user-images.githubusercontent.com/61721550/164599706-33fa0e9b-fb90-4db2-af6b-877416ad4367.png)
 
 
