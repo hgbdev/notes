@@ -31,3 +31,39 @@ func helper(input []int, result *[]int) []int {
 }
 
 ```
+
+Another way\
+```go
+package main
+
+import "fmt"
+
+func main() {
+	num := collectOddValues([]int{1, 2, 3, 4, 5})
+	fmt.Printf("%v \n", num)
+}
+
+func collectOddValues(arr []int) []int {
+	newSlice := []int{}
+
+	if len(arr) == 0 {
+		return newSlice
+	}
+
+	if arr[0]%2 != 0 {
+		newSlice = append(newSlice, arr[0])
+	}
+
+	_arr := collectOddValues(arr[1:])
+
+	newSlice = append(newSlice, _arr...)
+
+	return newSlice
+
+}
+```
+
+Explain:\
+![image](https://user-images.githubusercontent.com/61721550/164598406-6b9441cd-be89-4496-a6ac-3e89ffe4833e.png)
+
+
